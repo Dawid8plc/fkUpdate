@@ -118,7 +118,6 @@ bool userRegCheck(const std::string& regKey) {
 		DWORD type;
 		if (RegQueryValueEx(hKey, regKey.c_str(), NULL, &type, (LPBYTE)&val, &dataSize) == ERROR_SUCCESS)
 		{
-			RegCloseKey(hKey);
 			if (val != 46 || type != REG_SZ) { //Character code 46 = "."
 				badKey = true;
 			}
